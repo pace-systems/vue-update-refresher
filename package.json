@@ -1,7 +1,14 @@
 {
   "name": "vue-update-refresher",
+  "author": "Bill Schumacher / PACE Systems",
+  "description": "Checks for updates and refreshes specified URLs.",
+  "keywords": [
+    "updater",
+    "refresher",
+    "vue"
+  ],
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -38,5 +45,17 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pace-systems/vue-update-refresher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pace-systems/vue-update-refresher/issues"
+  },
+  "homepage": "https://github.com/pace-systems/vue-update-refresher#readme",
+  "license": {
+    "type": "MIT",
+    "url": "http://www.opensource.org/licenses/mit-license.php"
+  }
 }
