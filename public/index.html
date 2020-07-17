@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="vue-app-version" content="1.0.0" />
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
@@ -13,5 +14,39 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <script>
+          window.tickVersionCheck = async function() {
+            // Change version url and don't pass into plugin options.
+          const resp = fetch("http://localhost/version", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json"
+            }
+          });
+          await resp.then(response => {
+            if (response.status === 200) {
+              let jd = response.json();
+              return jd.then(j => {
+                if (j.version) {
+                  if (j.version.trim() > window.getMeta('vue-app-version')) {
+                     window.appWillUpdate();
+                     window.iterateUpdateURLS();
+                  } else {
+                     localStorage.setItem("updateRefreshes", "0");
+                  }
+                }
+              });
+            }
+          });
+      }
+      window.onload = async function() {
+
+        setTimeout(()=> {
+          console.log("Checking for updates every: " + window.updateInterval.toString() + "ms");
+            window.versionCheckTimer = setInterval(window.tickVersionCheck, window.updateInterval);
+        }, 10000);
+      }
+    </script>
   </body>
 </html>

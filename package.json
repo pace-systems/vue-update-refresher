@@ -1,5 +1,5 @@
 {
-  "name": "vue-auto-updater",
+  "name": "vue-update-refresher",
   "version": "0.1.0",
   "private": true,
   "scripts": {
