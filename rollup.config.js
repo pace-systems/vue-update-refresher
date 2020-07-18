@@ -8,7 +8,11 @@ export default [
 	{
 		input: 'src/index.js',
 		output: [
-			{name: 'vue-update-refresher', file: pkg.browser, format: "umd", plugins: [terser()], sourcemap: true },
+			{
+				name: 'vue-update-refresher', file: pkg.browser,
+				format: "umd", plugins: [terser()], sourcemap: true,
+				exports: 'named'
+			},
 		],
 		plugins: [
 			resolve(), // so Rollup can find external deps
@@ -26,8 +30,10 @@ export default [
 		input: 'src/index.js',
 		external: [], //['ms'],
 		output: [
-			{ file: pkg.main, format: 'cjs', plugins: [terser()], sourcemap: true  },
-			{ file: pkg.module, format: 'es', plugins: [terser()], sourcemap: true  }
+			{ file: pkg.main, format: 'cjs', plugins: [terser()], sourcemap: true,
+				exports: 'named'  },
+			{ file: pkg.module, format: 'es', plugins: [terser()], sourcemap: true,
+				exports: 'named'  }
 		]
 	}
 ];

@@ -96,3 +96,5 @@ export const VUpdateRefresherPlugin = {
         }
     }
 }
+
+export default VUpdateRefresherPlugin;
