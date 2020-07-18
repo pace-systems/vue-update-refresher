@@ -7,24 +7,36 @@
     "refresher",
     "vue"
   ],
-  "version": "0.1.0",
+  "main": "dist/vue-update-refresher.cjs.js",
+  "module": "dist/vue-update-refresher.esm.js",
+  "browser": "dist/vue-update-refresher.umd.js",
+  "version": "0.1.1",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build": "rollup -c --compact",
+    "dev": "rollup -c -w",
+    "pretest": "npm run build"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
     "@vue/cli-service": "~4.4.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "rollup": "^2.22.0",
+    "rollup-plugin-terser": "^6.1.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

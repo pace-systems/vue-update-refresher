@@ -1,6 +1,6 @@
 
 
-const VUpdateRefresherPlugin = {
+export const VUpdateRefresherPlugin = {
     install(Vue, options) {
         if (!options) {
             options = {};
@@ -96,5 +96,3 @@ const VUpdateRefresherPlugin = {
         }
     }
 }
-
-export default VUpdateRefresherPlugin;

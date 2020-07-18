@@ -1,6 +1,6 @@
 import Vue from "vue"
 import App from "./App";
-import VUpdateRefresherPlugin from './index';
+import {VUpdateRefresherPlugin} from './index';
 
 Vue.use(VUpdateRefresherPlugin, {}); //, {versionURL: "http://localhost:8000/version"}); etc...
 
